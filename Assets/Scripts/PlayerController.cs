@@ -11,12 +11,20 @@ public class PlayerController : MonoBehaviour
     private float nextFire = 0.0f;
     [SerializeField] private int _lives = 3;
 
+    private SpawnManager _spawnManager;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
+        if (_spawnManager == null)
+        {
+            Debug.LogError("The SpawnManager is NULL");
+        }
     }
-    private void LateUpdate()
+    private void Update()
     {
         CalculateMovement();
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
@@ -66,8 +74,9 @@ public class PlayerController : MonoBehaviour
     {
         _lives--;
 
-        if(_lives < 1)
+        if (_lives < 1)
         {
+            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }
