@@ -18,9 +18,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit " + other.transform.name);
+        Debug.Log(other.transform.name + " hit " + this.transform.name);
 
         if (other.CompareTag("Player"))
         {

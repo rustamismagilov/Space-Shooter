@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     private void FireLaser()
     {
         nextFire = Time.time + _fireRate;
-        Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+        Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
     }
 
     public void DamageThePlayer()
