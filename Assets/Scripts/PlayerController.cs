@@ -6,13 +6,15 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float _speed = 3.5f;
+    [SerializeField] private float _speedMultiplier = 2f;
     [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private GameObject _tripleShotPrefab;
     [SerializeField] private float _fireRate = 0.15f;
     private float nextFire = 0.0f;
     [SerializeField] private int _lives = 3;
     private SpawnManager _spawnManager;
-    [SerializeField] private bool _isTripleShotActive = false;
+    private bool _isTripleShotActive = false;
+    private bool _isSpeedBoostActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,5 +102,19 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(5.0f);
         _isTripleShotActive = false;
+    }
+
+    public void SpeedBoostActive()
+    {
+        _isTripleShotActive = true;
+        _speed *= _speedMultiplier;
+        StartCoroutine(SpeedBoostPowerDownRoutine());
+    }
+
+    IEnumerator SpeedBoostPowerDownRoutine()
+    {
+        yield return new WaitForSeconds(5.0f);
+        _isSpeedBoostActive = false;
+        _speed /= _speedMultiplier;
     }
 }
