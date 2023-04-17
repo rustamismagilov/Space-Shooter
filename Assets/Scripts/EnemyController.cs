@@ -8,11 +8,6 @@ public class EnemyController : MonoBehaviour
 
     private PlayerController _playerController;
 
-    private void Start()
-    {
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-    }
-
     // Update is called once per frame
     void Update()
     {
