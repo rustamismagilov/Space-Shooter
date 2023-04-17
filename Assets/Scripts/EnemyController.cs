@@ -8,6 +8,11 @@ public class EnemyController : MonoBehaviour
 
     private PlayerController _playerController;
 
+    private void Start()
+    {
+        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +46,7 @@ public class EnemyController : MonoBehaviour
             Destroy(other.gameObject);
             if (_playerController != null)
             {
-                _playerController.AddScore(Random.Range(5,10));
+                _playerController.AddScore(Random.Range(5, 10));
             }
             Destroy(this.gameObject);
         }
