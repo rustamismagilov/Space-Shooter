@@ -11,7 +11,8 @@ public class SpawnManager : MonoBehaviour
 
     private bool _stopSpawning = false;
 
-    float powerUpLifetime = 7.0f;
+    [SerializeField] float powerUpLifetime = 7.0f;
+    [SerializeField] float asteroidLifetime = 8.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +51,8 @@ public class SpawnManager : MonoBehaviour
         {
             Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 7, 0);
             int randomAsteroidPrefab = Random.Range(0, 1);
-            Instantiate(_asteroidPrefab[randomAsteroidPrefab], SpawnPosition, Quaternion.identity);
+            GameObject asteroidObject = Instantiate(_asteroidPrefab[randomAsteroidPrefab], SpawnPosition, Quaternion.identity);
+            Destroy(asteroidObject, asteroidLifetime);
             yield return new WaitForSeconds(Random.Range(8, 15));
         }
     }

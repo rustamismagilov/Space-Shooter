@@ -15,6 +15,7 @@ public class AsteroidsController : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     [SerializeField] private float _speed = 4.0f;
+    [SerializeField] private float _rotationSpeed = 180.0f;
 
     private PlayerController _playerController;
     private Animator _animator;
@@ -28,6 +29,8 @@ public class AsteroidsController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        _rotationSpeed = Random.Range(-45f, 45f);
+
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
         if (_playerController == null)
@@ -42,7 +45,7 @@ public class AsteroidsController : MonoBehaviour
             Debug.LogError("The animator is NULL");
         }
 
-        //this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
+        
         this.transform.localScale = Vector3.one * this.size;
 
         _rigidbody.mass = this.size;
@@ -51,6 +54,8 @@ public class AsteroidsController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        transform.Rotate(0f, 0f, _rotationSpeed * Time.deltaTime);
+
         transform.Translate(_speed * Time.deltaTime * Vector3.down);
 
         if (transform.position.y < -5f)
@@ -85,7 +90,7 @@ public class AsteroidsController : MonoBehaviour
             Destroy(other.gameObject);
             if (_playerController != null)
             {
-                _playerController.AddScore(Random.Range(1, 4) * 5);
+                _playerController.AddScore(Random.Range(1, 2) * 5);
             }
 
             _animator.SetTrigger("OnAsteroidDestroyed");
