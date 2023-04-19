@@ -52,8 +52,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 7, 0);
             int randomAsteroidPrefab = Random.Range(0, 1);
             GameObject asteroidObject = Instantiate(_asteroidPrefab[randomAsteroidPrefab], SpawnPosition, Quaternion.identity);
+            AsteroidsController asteroid = asteroidObject.GetComponent<AsteroidsController>();
+            asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
             Destroy(asteroidObject, asteroidLifetime);
-            yield return new WaitForSeconds(Random.Range(8, 15));
+            yield return new WaitForSeconds(Random.Range(5, 10));
         }
     }
 

@@ -531,6 +531,8 @@ MonoBehaviour:
   - {fileID: 693229520098535876, guid: 5e11f1933151f3b4a857d98235329cf1, type: 3}
   - {fileID: 7026272695602578369, guid: 6ce8f5139eae3c244aaf8f442e314a42, type: 3}
   - {fileID: 6064469312507857229, guid: 0f0039c235efbeb4fb0f4968acd586b4, type: 3}
+  powerUpLifetime: 7
+  asteroidLifetime: 10
 --- !u!1 &401351623
 GameObject:
   m_ObjectHideFlags: 0

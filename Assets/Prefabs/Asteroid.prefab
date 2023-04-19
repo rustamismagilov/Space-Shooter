@@ -100,12 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18c49708290851429fe826ab3518913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidSprites: []
   size: 0.8
   minSize: 0.5
   maxSize: 1
   _speed: 4
-  _rotationSpeed: 0
+  _rotationSpeed: 180
 --- !u!50 &1027561211375075386
 Rigidbody2D:
   serializedVersion: 4
