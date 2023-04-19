@@ -26,9 +26,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private UIManager _uIManager;
 
+    [SerializeField] private GameObject _leftEngine, _rightEngine;
+    GameObject[] _engines;
+
     // Start is called before the first frame update
     void Start()
     {
+        _engines = new GameObject[] { _leftEngine, _rightEngine };
+
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -108,6 +113,8 @@ public class PlayerController : MonoBehaviour
 
         _lives--;
 
+        EngineDamaged();
+
         _uIManager.UpdateLives(_lives);
 
         if (_lives < 1)
@@ -153,5 +160,28 @@ public class PlayerController : MonoBehaviour
     {
         _score += points;
         _uIManager.UpdateScore(_score);
+    }
+
+    public void EngineDamaged()
+    {
+        int randomEngineIndex = Random.Range(0, _engines.Length);
+        GameObject randomEngine = _engines[randomEngineIndex];
+
+        if (!randomEngine.activeSelf)
+        {
+            randomEngine.SetActive(true);
+        }
+        else
+        {
+            // Activate another engine if the randomly selected one is already active
+            for (int i = 0; i < _engines.Length; i++)
+            {
+                if (i != randomEngineIndex && !_engines[i].activeSelf)
+                {
+                    _engines[i].SetActive(true);
+                    break;
+                }
+            }
+        }
     }
 }

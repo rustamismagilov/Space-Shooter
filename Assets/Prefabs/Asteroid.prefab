@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 0.8
   minSize: 0.5
-  maxSize: 1
+  maxSize: 1.2
   _speed: 4
   _rotationSpeed: 180
 --- !u!50 &1027561211375075386

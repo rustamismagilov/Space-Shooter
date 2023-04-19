@@ -13,7 +13,7 @@ public class AsteroidsController : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     [SerializeField] private float _speed = 4.0f;
-    [SerializeField] private float _rotationSpeed = 180.0f;
+    [SerializeField] private float _rotationSpeed;
 
     private PlayerController _playerController;
     private Animator _animator;

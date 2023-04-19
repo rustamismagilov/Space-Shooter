@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     private PlayerController _playerController;
     private Animator _animator;
 
+    //TODO: When using tripleshot, if more than one laser hits the enemy, each laser gets scored.
+    //TODO: Sometimes it is possible to hit an enemy right when it spawns and is still not visible on the screen, but it still get you a score for a kill.
 
     private void Start()
     {
