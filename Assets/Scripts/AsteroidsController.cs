@@ -18,6 +18,9 @@ public class AsteroidsController : MonoBehaviour
     private PlayerController _playerController;
     private Animator _animator;
 
+    [SerializeField] private AudioClip _explosionSoundClip;
+    private AudioSource _audioSource;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +34,8 @@ public class AsteroidsController : MonoBehaviour
 
         _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 
+        _audioSource = GetComponent<AudioSource>();
+
         if (_playerController == null)
         {
             Debug.LogError("The player is NULL");
@@ -43,6 +48,14 @@ public class AsteroidsController : MonoBehaviour
             Debug.LogError("The animator is NULL");
         }
 
+        if (_audioSource == null)
+        {
+            Debug.LogError("The AudioSource is NULL");
+        }
+        else
+        {
+            _audioSource.clip = _explosionSoundClip;
+        }
 
         this.transform.localScale = Vector3.one * this.size;
 
@@ -78,8 +91,9 @@ public class AsteroidsController : MonoBehaviour
 
             _animator.SetTrigger("OnAsteroidDestroyed");
 
-            Destroy(GetComponent<Rigidbody2D>());
-            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<CircleCollider2D>());
+
+            _audioSource.Play();
 
             Destroy(this.gameObject, 1.5f);
         }
@@ -102,10 +116,10 @@ public class AsteroidsController : MonoBehaviour
 
             _animator.SetTrigger("OnAsteroidDestroyed");
 
-            Destroy(GetComponent<Rigidbody2D>());
-            Destroy(GetComponent<BoxCollider2D>());
+            Destroy(GetComponent<CircleCollider2D>());
 
             Destroy(this.gameObject, 1.5f);
+            _audioSource.Play();
         }
     }
 
@@ -116,5 +130,6 @@ public class AsteroidsController : MonoBehaviour
 
         AsteroidsController halfOfTheAsteroid = Instantiate(this, position, this.transform.rotation);
         halfOfTheAsteroid.size = this.size * 0.5f;
+        _audioSource.Play();
     }
 }

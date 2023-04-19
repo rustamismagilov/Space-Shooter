@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     private PlayerController _playerController;
     private Animator _animator;
 
+    [SerializeField] private AudioClip _explosionSoundClip;
+    private AudioSource _audioSource;
+
     //TODO: When using tripleshot, if more than one laser hits the enemy, each laser gets scored.
     //TODO: Sometimes it is possible to hit an enemy right when it spawns and is still not visible on the screen, but it still get you a score for a kill.
 
@@ -26,6 +29,17 @@ public class EnemyController : MonoBehaviour
         if (_animator == null)
         {
             Debug.LogError("The animator is NULL");
+        }
+
+        _audioSource = GetComponent<AudioSource>();
+
+        if (_audioSource == null)
+        {
+            Debug.LogError("The AudioSource is NULL");
+        }
+        else
+        {
+            _audioSource.clip = _explosionSoundClip;
         }
     }
 
@@ -59,6 +73,8 @@ public class EnemyController : MonoBehaviour
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<BoxCollider2D>());
 
+            _audioSource.Play();
+
             Destroy(this.gameObject, 1.5f);
         }
 
@@ -74,6 +90,8 @@ public class EnemyController : MonoBehaviour
 
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<BoxCollider2D>());
+
+            _audioSource.Play();
 
             Destroy(this.gameObject, 1.5f);
         }
