@@ -524,7 +524,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 7579497256208824332, guid: ece4f5720fae1ca41bf7608e77fa6cbb, type: 3}
   _enemyContainer: {fileID: 401351623}
-  _asteroidPrefab: {fileID: 1027561211375075390, guid: eca96b43aa026a44bb4f95daac1fc656, type: 3}
+  _asteroidPrefab:
+  - {fileID: 1027561211375075390, guid: eca96b43aa026a44bb4f95daac1fc656, type: 3}
+  - {fileID: 1027561211375075390, guid: eca96b43aa026a44bb4f95daac1fc656, type: 3}
   _PowerUpIconsPrefabs:
   - {fileID: 693229520098535876, guid: 5e11f1933151f3b4a857d98235329cf1, type: 3}
   - {fileID: 7026272695602578369, guid: 6ce8f5139eae3c244aaf8f442e314a42, type: 3}
@@ -1323,6 +1325,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
+      propertyPath: _uIManager
+      value: 
+      objectReference: {fileID: 1626452991}
+    - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: _uiManager
       value: 
       objectReference: {fileID: 1626452991}
@@ -1334,6 +1340,10 @@ PrefabInstance:
       propertyPath: _laserIconPrefab
       value: 
       objectReference: {fileID: 5322396953909970924, guid: 20f47d9640bd2984bb1b59e4bb567ee1, type: 3}
+    - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
+      propertyPath: _speedMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: _shieldVisualizer
       value: 

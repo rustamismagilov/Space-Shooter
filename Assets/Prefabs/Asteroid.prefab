@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1027561211375075387}
   - component: {fileID: 1027561211375075386}
   - component: {fileID: 1027561211375075385}
+  - component: {fileID: 9191553583952273391}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1027561211375075389
 SpriteRenderer:
@@ -99,6 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18c49708290851429fe826ab3518913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroidSprites: []
+  size: 0.9
+  minSize: 0.5
+  maxSize: 1.5
+  _speed: 4
 --- !u!50 &1027561211375075386
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +167,23 @@ CircleCollider2D:
   m_Offset: {x: 0.013659, y: 0}
   serializedVersion: 2
   m_Radius: 1.030144
+--- !u!95 &9191553583952273391
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027561211375075390}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5dc231324d0de9642a88bc6a6b71cdf0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

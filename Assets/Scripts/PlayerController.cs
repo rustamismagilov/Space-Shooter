@@ -24,21 +24,21 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int _score;
 
-    [SerializeField] private UIManager _uiManager;
+    [SerializeField] private UIManager _uIManager;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         if (_spawnManager == null)
         {
             Debug.LogError("The SpawnManager is NULL");
         }
 
-        if (_uiManager == null)
+        if (_uIManager == null)
         {
             Debug.LogError("The UIManager is NULL");
         }
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         _lives--;
 
-        _uiManager.UpdateLives(_lives);
+        _uIManager.UpdateLives(_lives);
 
         if (_lives < 1)
         {
@@ -152,6 +152,6 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int points)
     {
         _score += points;
-        _uiManager.UpdateScore(_score);
+        _uIManager.UpdateScore(_score);
     }
 }
