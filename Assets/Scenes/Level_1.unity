@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -679,7 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 486639380}
   - component: {fileID: 486639382}
-  - component: {fileID: 486639381}
+  - component: {fileID: 486639383}
   m_Layer: 5
   m_Name: LivesDisplay
   m_TagString: Untagged
@@ -707,7 +707,15 @@ RectTransform:
   m_AnchoredPosition: {x: 75, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &486639381
+--- !u!222 &486639382
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486639379}
+  m_CullTransparentMesh: 1
+--- !u!114 &486639383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -720,21 +728,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastTargetCache: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  <useLegacyMeshGeneration>k__BackingField: 0
   m_Maskable: 1
-  m_IsMaskingGraphic: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   m_Sprite: {fileID: 21300000, guid: 9fe6f40efddf0b64fb68a3382b14a4db, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -743,19 +743,8 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_AlphaHitTestMinimumThreshold: 0
-  m_Tracked: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  m_CachedReferencePixelsPerUnit: 100
---- !u!222 &486639382
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486639379}
-  m_CullTransparentMesh: 1
 --- !u!1 &564190077
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,15 +776,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
-  m_EventSystem: {fileID: 0}
-  m_InputOverride: {fileID: 0}
-  m_DefaultInput: {fileID: 0}
-  m_PrevActionTime: 0
-  m_LastMoveVector: {x: 0, y: 0}
-  m_ConsecutiveMoveCount: 0
-  m_LastMousePosition: {x: 0, y: 0}
-  m_MousePosition: {x: 0, y: 0}
-  m_CurrentFocusedGameObject: {fileID: 0}
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -815,16 +795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SystemInputModules: []
-  m_CurrentInputModule: {fileID: 0}
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
-  m_CurrentSelected: {fileID: 0}
-  m_HasFocus: 1
-  m_SelectionGuard: 0
-  m_Started: 0
-  m_IsTrackingUIToolkitPanels: 0
 --- !u!4 &564190080
 Transform:
   m_ObjectHideFlags: 0
@@ -1403,12 +1376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RootRaycaster: {fileID: 0}
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
+    serializedVersion: 2
     m_Bits: 4294967295
-  m_Canvas: {fileID: 0}
 --- !u!114 &1626452988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1421,7 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1431,7 +1403,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_Canvas: {fileID: 1626452989}
   m_PresetInfoIsWorld: 0
 --- !u!223 &1626452989
 Canvas:
@@ -1492,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 19136980}
-  _livesImage: {fileID: 486639381}
+  _livesImage: {fileID: 486639383}
   _liveSprites:
   - {fileID: 21300000, guid: ba53e111f0125654cabfd4eefaf3a657, type: 3}
   - {fileID: 21300000, guid: 80fba5ece7697c44eacc036539c1b552, type: 3}
