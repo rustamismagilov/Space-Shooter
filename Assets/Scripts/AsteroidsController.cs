@@ -24,6 +24,8 @@ public class AsteroidsController : MonoBehaviour
     private SpawnManager _spawnManager;
     private GameObject _asteroidContainer;
 
+    //TODO: add explosion sound clip if player dies because of the asteroid
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -78,7 +80,7 @@ public class AsteroidsController : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (transform.position.x > 11.3f || transform.position.x < -11.3f)
+        if (transform.position.x > 12f || transform.position.x < -12f)
         {
             Destroy(this.gameObject);
         }
