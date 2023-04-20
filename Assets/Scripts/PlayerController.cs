@@ -37,20 +37,22 @@ public class PlayerController : MonoBehaviour
         _engines = new GameObject[] { _leftEngine, _rightEngine };
 
         transform.position = new Vector3(0, 0, 0);
-        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        _uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
-        _audioSource = GetComponent<AudioSource>();
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 
         if (_spawnManager == null)
         {
             Debug.LogError("The SpawnManager is NULL");
         }
 
+        _uIManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
         if (_uIManager == null)
         {
             Debug.LogError("The UIManager is NULL");
         }
+
+        _audioSource = GetComponent<AudioSource>();
 
         if (_audioSource == null)
         {

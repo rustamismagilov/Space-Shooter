@@ -64,5 +64,25 @@ public class SpawnManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         _stopSpawning = true;
+        RemoveExistingObjectsOnPlayerDeath();
+    }
+
+    private void RemoveExistingObjectsOnPlayerDeath()
+    {
+        foreach (Transform child in _enemyContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Transform child in _asteroidContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        GameObject[] powerUps = GameObject.FindGameObjectsWithTag("PowerUp");
+        foreach (GameObject powerUp in powerUps)
+        {
+            Destroy(powerUp);
+        }
     }
 }
