@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private GameObject _enemyContainer;
-    [SerializeField] private GameObject _asteroidContainer;
+    public GameObject _asteroidContainer;
     [SerializeField] private GameObject[] _asteroidPrefab;
     [SerializeField] private GameObject[] _PowerUpIconsPrefabs;
 

@@ -21,10 +21,14 @@ public class AsteroidsController : MonoBehaviour
     [SerializeField] private AudioClip _explosionSoundClip;
     private AudioSource _audioSource;
 
+    private SpawnManager _spawnManager;
+    private GameObject _asteroidContainer;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
 
     // Start is called before the first frame update
@@ -130,6 +134,8 @@ public class AsteroidsController : MonoBehaviour
 
         AsteroidsController halfOfTheAsteroid = Instantiate(this, position, this.transform.rotation);
         halfOfTheAsteroid.size = this.size * 0.5f;
+        halfOfTheAsteroid.transform.parent = _spawnManager._asteroidContainer.transform;
+
         _audioSource.Play();
     }
 }
