@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private GameObject _enemyContainer;
+    [SerializeField] private GameObject _asteroidContainer;
     [SerializeField] private GameObject[] _asteroidPrefab;
     [SerializeField] private GameObject[] _PowerUpIconsPrefabs;
 
@@ -52,6 +53,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 7, 0);
             int randomAsteroidPrefab = Random.Range(0, 1);
             GameObject asteroidObject = Instantiate(_asteroidPrefab[randomAsteroidPrefab], SpawnPosition, Quaternion.identity);
+            asteroidObject.transform.parent = _asteroidContainer.transform;
             AsteroidsController asteroid = asteroidObject.GetComponent<AsteroidsController>();
             asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
             Destroy(asteroidObject, asteroidLifetime);
