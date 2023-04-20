@@ -82,15 +82,15 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(_speed * Time.deltaTime * direction);
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.3f, 0), 0);
 
         if (transform.position.y >= 0)
         {
             transform.position = new Vector3(transform.position.x, 0, 0);
         }
-        else if (transform.position.y <= -3.8f)
+        else if (transform.position.y <= -4.3f)
         {
-            transform.position = new Vector3(transform.position.x, -3.8f, 0);
+            transform.position = new Vector3(transform.position.x, -4.3f, 0);
         }
 
         if (transform.position.x > 11.3f)

@@ -73,10 +73,14 @@ public class AsteroidsController : MonoBehaviour
 
         transform.Translate(_speed * Time.deltaTime * Vector3.down);
 
-        if (transform.position.y < -5f)
+        if (transform.position.y < -7f)
         {
-            float randomX = Random.Range(-8f, 8f);
-            transform.position = new Vector3(randomX, 7, 0);
+            Destroy(this.gameObject);
+        }
+
+        if (transform.position.x > 11.3f || transform.position.x < -11.3f)
+        {
+            Destroy(this.gameObject);
         }
     }
 

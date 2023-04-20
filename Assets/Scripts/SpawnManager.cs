@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawning == false)
         {
-            Vector3 spawnPosition = new(Random.Range(-8f, 8f), 7, 0);
+            Vector3 spawnPosition = new(Random.Range(-8f, 8f), 8, 0);
             GameObject newEnemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(Random.Range(3.0f, 7.0f));
@@ -38,7 +38,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawning == false)
         {
-            Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 7, 0);
+            Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 8, 0);
             int randomPowerUp = Random.Range(0, 3);
             GameObject powerUpObject = Instantiate(_PowerUpIconsPrefabs[randomPowerUp], SpawnPosition, Quaternion.identity);
             Destroy(powerUpObject, powerUpLifetime);
@@ -50,13 +50,13 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawning == false)
         {
-            Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 7, 0);
+            Vector3 SpawnPosition = new Vector3(Random.Range(-8f, 8f), 8, 0);
             int randomAsteroidPrefab = Random.Range(0, 1);
             GameObject asteroidObject = Instantiate(_asteroidPrefab[randomAsteroidPrefab], SpawnPosition, Quaternion.identity);
             asteroidObject.transform.parent = _asteroidContainer.transform;
             AsteroidsController asteroid = asteroidObject.GetComponent<AsteroidsController>();
             asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
-            Destroy(asteroidObject, asteroidLifetime);
+            //Destroy(asteroidObject, asteroidLifetime);
             yield return new WaitForSeconds(Random.Range(5, 10));
         }
     }
