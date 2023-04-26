@@ -900,6 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25a188421a345448ba77afba27ebc01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCoopMode: 0
 --- !u!4 &858481408
 Transform:
   m_ObjectHideFlags: 0
@@ -1554,6 +1555,10 @@ PrefabInstance:
       propertyPath: _uIManager
       value: 
       objectReference: {fileID: 1626452991}
+    - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
+      propertyPath: isPlayerOne
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974590, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: m_RootOrder
       value: 3

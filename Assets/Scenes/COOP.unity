@@ -1500,12 +1500,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4940909968805974584, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: m_Name
-      value: Player 2
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: _uIManager
       value: 
       objectReference: {fileID: 1626452991}
+    - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
+      propertyPath: isPlayerTwo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974590, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1626,12 +1630,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4940909968805974584, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: _uIManager
       value: 
       objectReference: {fileID: 1626452991}
+    - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
+      propertyPath: isPlayerOne
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940909968805974589, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
+      propertyPath: isPlayerTwo
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4940909968805974590, guid: 3c61efcd42dc0154791e58179ab155c7, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private SpawnManager _spawnManager;
     private GameManager _gameManager;
 
+    public bool isPlayerOne = false;
+    public bool isPlayerTwo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -75,18 +77,31 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        CalculateMovement();
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire)
+        if (isPlayerOne == true)
         {
-            FireLaser();
+            CalculateMovement();
+            if ((Input.GetKeyDown(KeyCode.Space) && Time.time > nextFire) && isPlayerOne == true)
+            {
+                FireLaser();
+            }
         }
+
+        if (isPlayerTwo == true)
+        {
+            CalculateMovement();
+            if ((Input.GetKeyDown(KeyCode.RightControl) && Time.time > nextFire) && isPlayerTwo == true)
+            {
+                FireLaser();
+            }
+        }
+
     }
 
     // Update is called once per frame
     void CalculateMovement()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = isPlayerOne ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal2");
+        float verticalInput = isPlayerOne ? Input.GetAxis("Vertical") : Input.GetAxis("Vertical2");
 
         Vector3 direction = new(horizontalInput, verticalInput, 0);
 
