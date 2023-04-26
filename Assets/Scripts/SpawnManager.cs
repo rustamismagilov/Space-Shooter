@@ -18,9 +18,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemyRoutine());
-        StartCoroutine(SpawnPowerUpRoutine());
-        StartCoroutine(SpawnAsteroidsRoutine());
+        StartCoroutine(StartSpawnRoutines());
     }
 
     IEnumerator SpawnEnemyRoutine()
@@ -56,7 +54,6 @@ public class SpawnManager : MonoBehaviour
             asteroidObject.transform.parent = _asteroidContainer.transform;
             AsteroidsController asteroid = asteroidObject.GetComponent<AsteroidsController>();
             asteroid.size = Random.Range(asteroid.minSize, asteroid.maxSize);
-            //Destroy(asteroidObject, asteroidLifetime);
             yield return new WaitForSeconds(Random.Range(5, 10));
         }
     }
@@ -84,5 +81,13 @@ public class SpawnManager : MonoBehaviour
         {
             Destroy(powerUp);
         }
+    }
+
+    IEnumerator StartSpawnRoutines()
+    {
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(SpawnEnemyRoutine());
+        StartCoroutine(SpawnPowerUpRoutine());
+        StartCoroutine(SpawnAsteroidsRoutine());
     }
 }

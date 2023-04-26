@@ -10,33 +10,43 @@ public class PlayerController : MonoBehaviour
     private float nextFire = 0.0f;
 
     [SerializeField] private int _lives = 3;
+    [SerializeField] private int _score;
 
     [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private GameObject _tripleShotPrefab;
     [SerializeField] private GameObject _shieldPrefab;
 
-    private SpawnManager _spawnManager;
-
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
     private bool _isShieldActive = false;
-
-    [SerializeField] private int _score;
-
-    [SerializeField] private UIManager _uIManager;
 
     [SerializeField] private GameObject _leftEngine, _rightEngine;
     GameObject[] _engines;
 
     [SerializeField] private AudioClip _laserSoundClip;
+
+    [SerializeField] private UIManager _uIManager;
     private AudioSource _audioSource;
+    private SpawnManager _spawnManager;
+    private GameManager _gameManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _engines = new GameObject[] { _leftEngine, _rightEngine };
 
-        transform.position = new Vector3(0, 0, 0);
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (_gameManager.isCoopMode == false)
+        {
+            transform.position = new Vector3(0, 0, 0);
+        }
+
+        if (_gameManager == null)
+        {
+            Debug.LogError("The GameManager is NULL");
+        }
 
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 
