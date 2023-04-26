@@ -22,15 +22,25 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
-            SceneManager.LoadScene("Singleplayer");
+            // Get the active scene
+            Scene currentScene = SceneManager.GetActiveScene();
+
+            // Reload the appropriate scene
+            if (currentScene.name == "Singleplayer")
+            {
+                SceneManager.LoadScene("Singleplayer");
+            }
+            else if (currentScene.name == "COOP")
+            {
+                SceneManager.LoadScene("COOP");
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            SceneManager.LoadScene("Main_Menu");
+            //Application.Quit();
         }
-
-        
     }
 
     public void GameOver()

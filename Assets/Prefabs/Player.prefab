@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 4940909968805974589}
   - component: {fileID: 1608898547107247768}
   - component: {fileID: 1868864979}
+  - component: {fileID: 7561921772492998843}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -457,7 +458,7 @@ Transform:
   - {fileID: 984431149}
   - {fileID: 2086708344}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4940909968805974591
 SpriteRenderer:
@@ -527,14 +528,16 @@ MonoBehaviour:
   _speedMultiplier: 1.5
   _fireRate: 0.15
   _lives: 3
+  _score: 0
   _laserPrefab: {fileID: 5322396953909970924, guid: 20f47d9640bd2984bb1b59e4bb567ee1, type: 3}
   _tripleShotPrefab: {fileID: 4173955563761838953, guid: 4182099ba8d58a2489371e8e7e59d4ee, type: 3}
   _shieldPrefab: {fileID: 1850322924}
-  _score: 0
-  _uIManager: {fileID: 0}
   _leftEngine: {fileID: 984431148}
   _rightEngine: {fileID: 2086708343}
   _laserSoundClip: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
+  _uIManager: {fileID: 0}
+  isPlayerOne: 0
+  isPlayerTwo: 0
 --- !u!61 &1608898547107247768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -676,3 +679,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7561921772492998843
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4940909968805974584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89d95d99ca96e5a4a82e8afef49f2f8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
