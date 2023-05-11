@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if ((SceneManager.GetSceneByName("SinglePlayer").isLoaded || SceneManager.GetSceneByName("COOP").isLoaded) && Input.GetKeyDown(KeyCode.Escape))
+        if ((SceneManager.GetSceneByName("Singleplayer").isLoaded || SceneManager.GetSceneByName("COOP").isLoaded) && Input.GetKeyDown(KeyCode.Escape))
         {
             _pauseMenuPanel.SetActive(true);
             Time.timeScale = 0;

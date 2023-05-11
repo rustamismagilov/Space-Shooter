@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float nextFire = 0.0f;
 
     [SerializeField] private int _lives = 3;
-    [SerializeField] private int _score;
+    [HideInInspector] public int _score;
 
     [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private GameObject _tripleShotPrefab;
@@ -161,6 +161,8 @@ public class PlayerController : MonoBehaviour
 
         if (_lives < 1)
         {
+            _gameManager.GameOver();
+            _uIManager.CheckForBestScore();
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }

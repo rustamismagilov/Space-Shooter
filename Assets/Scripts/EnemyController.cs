@@ -99,7 +99,10 @@ public class EnemyController : MonoBehaviour
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<BoxCollider2D>());
 
-            _audioSource.Play();
+            if (gameObject != null)
+            {
+                _audioSource.Play();
+            }
 
             Destroy(this.gameObject, 1.5f);
         }
