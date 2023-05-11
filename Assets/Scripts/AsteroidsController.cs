@@ -38,7 +38,7 @@ public class AsteroidsController : MonoBehaviour
     {
         _rotationSpeed = Random.Range(-45f, 45f);
 
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         _audioSource = GetComponent<AudioSource>();
 

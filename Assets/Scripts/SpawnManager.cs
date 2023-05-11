@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     private bool _stopSpawning = false;
 
     [SerializeField] float powerUpLifetime = 7.0f;
-    [SerializeField] float asteroidLifetime = 8.0f;
+    //[SerializeField] float asteroidLifetime = 8.0f;
 
     // Start is called before the first frame update
     void Start()

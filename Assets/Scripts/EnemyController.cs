@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         if (_playerController == null)
         {
