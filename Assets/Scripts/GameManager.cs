@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     private UIManager _uIManager;
     private SpawnManager _spawnManager;
+    [SerializeField] private GameObject _pauseMenuPanel;
 
     private void Start()
     {
@@ -36,11 +37,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if ((SceneManager.GetSceneByName("SinglePlayer").isLoaded || SceneManager.GetSceneByName("COOP").isLoaded) && Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Main_Menu");
-            //Application.Quit();
+            _pauseMenuPanel.SetActive(true);
+            Time.timeScale = 0;
         }
+    }
+
+    public void ResumePlay()
+    {
+        _pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void GameOver()

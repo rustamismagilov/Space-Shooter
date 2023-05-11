@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -39,7 +40,6 @@ public class UIManager : MonoBehaviour
         if (currentLives == 0)
         {
             GameOverSequence();
-
         }
     }
 
@@ -48,5 +48,16 @@ public class UIManager : MonoBehaviour
         _gameManager.GameOver();
         _gameOverText.gameObject.SetActive(true);
         _restartText.gameObject.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.ResumePlay();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
     }
 }
